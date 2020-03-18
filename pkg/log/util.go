@@ -14,9 +14,6 @@ import (
 )
 
 func addExtraField(ctx context.Context, fields map[string]interface{}) {
-	if t, ok := trace.FromContext(ctx); ok {
-		fields[_tid] = t.TraceID()
-	}
 	if caller := metadata.String(ctx, metadata.Caller); caller != "" {
 		fields[_caller] = caller
 	}
@@ -29,6 +26,7 @@ func addExtraField(ctx context.Context, fields map[string]interface{}) {
 	if cluster := metadata.String(ctx, metadata.Cluster); cluster != "" {
 		fields[_cluster] = cluster
 	}
+	fields[_tid] = ctx.Value(trace.KratosTraceID)
 	fields[_deplyEnv] = env.DeployEnv
 	fields[_zone] = env.Zone
 	fields[_appID] = c.Family

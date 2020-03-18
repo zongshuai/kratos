@@ -2,6 +2,7 @@ package blademaster
 
 import (
 	"context"
+	"fmt"
 	"math"
 	"net/http"
 	"strconv"
@@ -175,17 +176,15 @@ func (c *Context) JSON(data interface{}, err error) {
 	*/
 	writeStatusCode(c.Writer, bcode.Code())
 
-	traceId := ""
-	if t, ok := trace.FromContext(c.Context); ok {
-		traceId = t.TraceID()
+	if bcode.Code() != 0 {
+		data = nil
 	}
-
 	c.Render(code, render.JSON{
 		Code:       bcode.Code(),
 		Message:    bcode.Message(),
 		Data:       data,
 		ServerTime: time.Now().Unix(),
-		TraceId:    traceId,
+		TraceId:    fmt.Sprintf("%s", c.Context.Value(trace.KratosTraceID)),
 	})
 }
 
