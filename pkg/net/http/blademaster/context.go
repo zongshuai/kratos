@@ -6,10 +6,12 @@ import (
 	"net/http"
 	"strconv"
 	"text/template"
+	"time"
 
 	"github.com/bilibili/kratos/pkg/ecode"
 	"github.com/bilibili/kratos/pkg/net/http/blademaster/binding"
 	"github.com/bilibili/kratos/pkg/net/http/blademaster/render"
+	"github.com/bilibili/kratos/pkg/net/trace"
 
 	"github.com/gogo/protobuf/proto"
 	"github.com/gogo/protobuf/types"
@@ -172,10 +174,18 @@ func (c *Context) JSON(data interface{}, err error) {
 		}
 	*/
 	writeStatusCode(c.Writer, bcode.Code())
+
+	traceId := ""
+	if t, ok := trace.FromContext(c.Context); ok {
+		traceId = t.TraceID()
+	}
+
 	c.Render(code, render.JSON{
-		Code:    bcode.Code(),
-		Message: bcode.Message(),
-		Data:    data,
+		Code:       bcode.Code(),
+		Message:    bcode.Message(),
+		Data:       data,
+		ServerTime: time.Now().Unix(),
+		TraceId:    traceId,
 	})
 }
 

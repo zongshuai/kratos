@@ -22,6 +22,8 @@ type Config struct {
 
 	// file
 	Dir string
+	// project name
+	Project string
 	// buffer size
 	FileBufferSize int64
 	// MaxLogFile
@@ -75,6 +77,7 @@ var (
 	_v        int
 	_stdout   bool
 	_dir      string
+	_project  string
 	_agentDSN string
 	_filter   logFilter
 	_module   = verboseModule{}
@@ -88,6 +91,7 @@ func addFlag(fs *flag.FlagSet) {
 	}
 	_stdout, _ = strconv.ParseBool(os.Getenv("LOG_STDOUT"))
 	_dir = os.Getenv("LOG_DIR")
+	_project = os.Getenv("LOG_PROJECT")
 	if tm := os.Getenv("LOG_MODULE"); len(tm) > 0 {
 		_module.Set(tm)
 	}
@@ -99,6 +103,7 @@ func addFlag(fs *flag.FlagSet) {
 	fs.IntVar(&_v, "log.v", _v, "log verbose level, or use LOG_V env variable.")
 	fs.BoolVar(&_stdout, "log.stdout", _stdout, "log enable stdout or not, or use LOG_STDOUT env variable.")
 	fs.StringVar(&_dir, "log.dir", _dir, "log file `path, or use LOG_DIR env variable.")
+	fs.StringVar(&_project, "log.project", _project, "log project for log name, or use LOG_PROJECT env variable.")
 	fs.StringVar(&_agentDSN, "log.agent", _agentDSN, "log agent dsn, or use LOG_AGENT env variable.")
 	fs.Var(&_module, "log.module", "log verbose for specified module, or use LOG_MODULE env variable, format: file=1,file2=2.")
 	fs.Var(&_filter, "log.filter", "log field for sensitive message, or use LOG_FILTER env variable, format: field1,field2.")
@@ -111,11 +116,12 @@ func Init(conf *Config) {
 	if conf == nil {
 		isNil = true
 		conf = &Config{
-			Stdout: _stdout,
-			Dir:    _dir,
-			V:      int32(_v),
-			Module: _module,
-			Filter: _filter,
+			Stdout:  _stdout,
+			Dir:     _dir,
+			Project: _project,
+			V:       int32(_v),
+			Module:  _module,
+			Filter:  _filter,
 		}
 	}
 	if len(env.AppID) != 0 {
@@ -132,7 +138,7 @@ func Init(conf *Config) {
 		hs = append(hs, NewStdout())
 	}
 	if conf.Dir != "" {
-		hs = append(hs, NewFile(conf.Dir, conf.FileBufferSize, conf.RotateSize, conf.MaxLogFile))
+		hs = append(hs, NewFile(conf.Dir, conf.Project, conf.FileBufferSize, conf.RotateSize, conf.MaxLogFile))
 	}
 	h = newHandlers(conf.Filter, hs...)
 	c = conf

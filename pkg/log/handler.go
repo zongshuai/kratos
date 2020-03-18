@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	_timeFormat = "2006-01-02T15:04:05.999999"
+	_timeFormat = "2006-01-02 15:04:05.999999"
 
 	// log level defined in level.go.
 	_levelValue = "level_value"

@@ -2,6 +2,7 @@ package log
 
 import (
 	"bytes"
+	"encoding/json"
 	"fmt"
 	"io"
 	"path"
@@ -23,6 +24,7 @@ var patternMap = map[string]func(map[string]interface{}) string{
 	"S": longSource,
 	"s": shortSource,
 	"M": message,
+	"J": jsonString,
 }
 
 // newPatternRender new pattern render
@@ -59,7 +61,7 @@ func newPatternRender(format string) Render {
 }
 
 type pattern struct {
-	funcs   []func(map[string]interface{}) string
+	funcs []func(map[string]interface{}) string
 	bufPool sync.Pool
 }
 
@@ -163,4 +165,9 @@ func message(d map[string]interface{}) string {
 	}
 	s = append(s, m)
 	return strings.Join(s, " ")
+}
+
+func jsonString(d map[string]interface{}) string {
+	b, _ := json.Marshal(d)
+	return string(b)
 }

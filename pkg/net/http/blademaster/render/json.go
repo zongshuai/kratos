@@ -2,19 +2,19 @@ package render
 
 import (
 	"encoding/json"
-	"net/http"
-
 	"github.com/pkg/errors"
+	"net/http"
 )
 
 var jsonContentType = []string{"application/json; charset=utf-8"}
 
 // JSON common json struct.
 type JSON struct {
-	Code    int         `json:"code"`
-	Message string      `json:"message"`
-	TTL     int         `json:"ttl"`
-	Data    interface{} `json:"data,omitempty"`
+	Code       int         `json:"error_code"`
+	Message    string      `json:"error_message"`
+	ServerTime int64       `json:"server_time"`
+	Data       interface{} `json:"data,omitempty"`
+	TraceId    string      `json:"trace_id"`
 }
 
 func writeJSON(w http.ResponseWriter, obj interface{}) (err error) {
@@ -33,9 +33,6 @@ func writeJSON(w http.ResponseWriter, obj interface{}) (err error) {
 // Render (JSON) writes data with json ContentType.
 func (r JSON) Render(w http.ResponseWriter) error {
 	// FIXME(zhoujiahui): the TTL field will be configurable in the future
-	if r.TTL <= 0 {
-		r.TTL = 1
-	}
 	return writeJSON(w, r)
 }
 
