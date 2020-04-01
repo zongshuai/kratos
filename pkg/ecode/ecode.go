@@ -88,11 +88,11 @@ func String(e string) Code {
 }
 
 // Cause cause from error to ecode.
-func Cause(e error) Code {
+func Cause(e error) Codes {
 	if e == nil {
 		return OK
 	}
-	ec, ok := errors.Cause(e).(Code)
+	ec, ok := errors.Cause(e).(Codes)
 	if ok {
 		return ec
 	}
