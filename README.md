@@ -2,8 +2,8 @@
 
 [![Language](https://img.shields.io/badge/Language-Go-blue.svg)](https://golang.org/)
 [![Build Status](https://travis-ci.org/bilibili/kratos.svg?branch=master)](https://travis-ci.org/bilibili/kratos)
-[![GoDoc](https://godoc.org/github.com/bilibili/kratos?status.svg)](https://godoc.org/github.com/bilibili/kratos)
-[![Go Report Card](https://goreportcard.com/badge/github.com/bilibili/kratos)](https://goreportcard.com/report/github.com/bilibili/kratos)
+[![GoDoc](https://godoc.org/github.com/zongshuai/kratos?status.svg)](https://godoc.org/github.com/zongshuai/kratos)
+[![Go Report Card](https://goreportcard.com/badge/github.com/zongshuai/kratos)](https://goreportcard.com/report/github.com/zongshuai/kratos)
 
 # Kratos
 
@@ -17,8 +17,8 @@ Kratos是[bilibili](https://www.bilibili.com)开源的一套Go微服务框架，
 
 ## Features
 * HTTP Blademaster：核心基于[gin](https://github.com/gin-gonic/gin)进行模块化设计，简单易用、核心足够轻量；
-* GRPC Warden：基于官方gRPC开发，集成[discovery](https://github.com/bilibili/discovery)服务发现，并融合P2C负载均衡；
-* Cache：优雅的接口化设计，非常方便的缓存序列化，推荐结合代理模式[overlord](https://github.com/bilibili/overlord)；
+* GRPC Warden：基于官方gRPC开发，集成[discovery](https://github.com/zongshuai/discovery)服务发现，并融合P2C负载均衡；
+* Cache：优雅的接口化设计，非常方便的缓存序列化，推荐结合代理模式[overlord](https://github.com/zongshuai/overlord)；
 * Database：集成MySQL/HBase/TiDB，添加熔断保护和统计支持，可快速发现数据层压力；
 * Config：方便易用的[paladin sdk](doc/wiki-cn/config.md)，可配合远程配置中心，实现配置版本管理和更新；
 * Log：类似[zap](https://github.com/uber-go/zap)的field实现高性能日志库，并结合log-agent实现远程日志管理；
@@ -33,12 +33,12 @@ Go version>=1.13
 
 ### Installation
 ```shell
-GO111MODULE=on && go get -u github.com/bilibili/kratos/tool/kratos
+GO111MODULE=on && go get -u github.com/zongshuai/kratos/tool/kratos
 cd $GOPATH/src
 kratos new kratos-demo
 ```
 
-通过 `kratos new` 会快速生成基于kratos库的脚手架代码，如生成 [kratos-demo](https://github.com/bilibili/kratos-demo) 
+通过 `kratos new` 会快速生成基于kratos库的脚手架代码，如生成 [kratos-demo](https://github.com/zongshuai/kratos-demo) 
 
 ### Build & Run
 
