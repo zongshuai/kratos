@@ -9,10 +9,10 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/bilibili/kratos/pkg/ecode"
-	"github.com/bilibili/kratos/pkg/net/http/blademaster/binding"
-	"github.com/bilibili/kratos/pkg/net/http/blademaster/render"
-	"github.com/bilibili/kratos/pkg/net/trace"
+	"github.com/zongshuai/kratos/pkg/ecode"
+	"github.com/zongshuai/kratos/pkg/net/http/blademaster/binding"
+	"github.com/zongshuai/kratos/pkg/net/http/blademaster/render"
+	"github.com/zongshuai/kratos/pkg/net/trace"
 
 	"github.com/gogo/protobuf/proto"
 	"github.com/gogo/protobuf/types"

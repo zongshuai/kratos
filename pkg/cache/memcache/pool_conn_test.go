@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/bilibili/kratos/pkg/container/pool"
-	xtime "github.com/bilibili/kratos/pkg/time"
+	"github.com/zongshuai/kratos/pkg/container/pool"
+	xtime "github.com/zongshuai/kratos/pkg/time"
 )
 
 var itempool = &Item{

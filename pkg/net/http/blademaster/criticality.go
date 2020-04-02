@@ -1,8 +1,8 @@
 package blademaster
 
 import (
-	criticalityPkg "github.com/bilibili/kratos/pkg/net/criticality"
-	"github.com/bilibili/kratos/pkg/net/metadata"
+	criticalityPkg "github.com/zongshuai/kratos/pkg/net/criticality"
+	"github.com/zongshuai/kratos/pkg/net/metadata"
 
 	"github.com/pkg/errors"
 )

@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/bilibili/kratos/pkg/ratelimit"
-	"github.com/bilibili/kratos/pkg/stat/metric"
+	"github.com/zongshuai/kratos/pkg/ratelimit"
+	"github.com/zongshuai/kratos/pkg/stat/metric"
 	"github.com/stretchr/testify/assert"
 )
 

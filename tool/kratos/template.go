@@ -74,8 +74,8 @@ import (
 
 	"{{.ModuleName}}/internal/server/http"
 	"{{.ModuleName}}/internal/service"
-	"github.com/bilibili/kratos/pkg/conf/paladin"
-	"github.com/bilibili/kratos/pkg/log"
+	"github.com/zongshuai/kratos/pkg/conf/paladin"
+	"github.com/zongshuai/kratos/pkg/log"
 
 	_ "go.uber.org/automaxprocs"
 )
@@ -127,8 +127,8 @@ import (
 	"{{.ModuleName}}/internal/server/grpc"
 	"{{.ModuleName}}/internal/server/http"
 	"{{.ModuleName}}/internal/service"
-	"github.com/bilibili/kratos/pkg/conf/paladin"
-	"github.com/bilibili/kratos/pkg/log"
+	"github.com/zongshuai/kratos/pkg/conf/paladin"
+	"github.com/zongshuai/kratos/pkg/log"
 
 	_ "go.uber.org/automaxprocs"
 )
@@ -184,12 +184,12 @@ import (
 	"context"
 	"time"
 
-	"github.com/bilibili/kratos/pkg/cache/memcache"
-	"github.com/bilibili/kratos/pkg/cache/redis"
-	"github.com/bilibili/kratos/pkg/conf/paladin"
-	"github.com/bilibili/kratos/pkg/database/sql"
-	"github.com/bilibili/kratos/pkg/log"
-	xtime "github.com/bilibili/kratos/pkg/time"
+	"github.com/zongshuai/kratos/pkg/cache/memcache"
+	"github.com/zongshuai/kratos/pkg/cache/redis"
+	"github.com/zongshuai/kratos/pkg/conf/paladin"
+	"github.com/zongshuai/kratos/pkg/database/sql"
+	"github.com/zongshuai/kratos/pkg/log"
+	xtime "github.com/zongshuai/kratos/pkg/time"
 )
 
 // Dao dao interface
@@ -288,7 +288,7 @@ import (
 	"context"
 
 	"{{.ModuleName}}/internal/dao"
-	"github.com/bilibili/kratos/pkg/conf/paladin"
+	"github.com/zongshuai/kratos/pkg/conf/paladin"
 )
 
 // Service service.
@@ -329,7 +329,7 @@ import (
 
 	pb "{{.ModuleName}}/api"
 	"{{.ModuleName}}/internal/dao"
-	"github.com/bilibili/kratos/pkg/conf/paladin"
+	"github.com/zongshuai/kratos/pkg/conf/paladin"
 
 	"github.com/golang/protobuf/ptypes/empty"
 )
@@ -387,9 +387,9 @@ import (
 	"{{.ModuleName}}/internal/model"
 	"{{.ModuleName}}/internal/service"
 
-	"github.com/bilibili/kratos/pkg/conf/paladin"
-	"github.com/bilibili/kratos/pkg/log"
-	bm "github.com/bilibili/kratos/pkg/net/http/blademaster"
+	"github.com/zongshuai/kratos/pkg/conf/paladin"
+	"github.com/zongshuai/kratos/pkg/log"
+	bm "github.com/zongshuai/kratos/pkg/net/http/blademaster"
 )
 
 var (
@@ -449,9 +449,9 @@ import (
 	"{{.ModuleName}}/internal/model"
 	"{{.ModuleName}}/internal/service"
 
-	"github.com/bilibili/kratos/pkg/conf/paladin"
-	"github.com/bilibili/kratos/pkg/log"
-	bm "github.com/bilibili/kratos/pkg/net/http/blademaster"
+	"github.com/zongshuai/kratos/pkg/conf/paladin"
+	"github.com/zongshuai/kratos/pkg/log"
+	bm "github.com/zongshuai/kratos/pkg/net/http/blademaster"
 )
 
 var (
@@ -550,7 +550,7 @@ type Kratos struct {
 go 1.12
 
 require (
-	github.com/bilibili/kratos master
+	github.com/zongshuai/kratos master
 	github.com/gogo/protobuf v1.2.1
 	github.com/golang/protobuf v1.3.2
 	golang.org/x/net v0.0.0-20190628185345-da137c7871d7
@@ -562,8 +562,8 @@ require (
 import (
 	pb "{{.ModuleName}}/api"
 	"{{.ModuleName}}/internal/service"
-	"github.com/bilibili/kratos/pkg/conf/paladin"
-	"github.com/bilibili/kratos/pkg/net/rpc/warden"
+	"github.com/zongshuai/kratos/pkg/conf/paladin"
+	"github.com/zongshuai/kratos/pkg/net/rpc/warden"
 )
 
 // New new a grpc server.

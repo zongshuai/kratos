@@ -13,7 +13,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"google.golang.org/grpc"
 
-	"github.com/bilibili/kratos/pkg/log"
+	"github.com/zongshuai/kratos/pkg/log"
 )
 
 func Test_logFn(t *testing.T) {
